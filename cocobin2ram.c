@@ -59,8 +59,8 @@ int main( int _argc, char *_argv[] ) {
     while( !feof( fin ) ) {
 
         int header = (int)fgetc(fin);
-        int size = (int)fgetc(fin) + (((int)fgetc(fin))<<8);
-        int address = (int)fgetc(fin) + (((int)fgetc(fin))<<8);
+        int size = (((int)fgetc(fin))<<8) + (((int)fgetc(fin)));
+        int address = (((int)fgetc(fin))<<8) + (((int)fgetc(fin)));
 
         if ( header == 0 ) {
             char * content = malloc( size );
